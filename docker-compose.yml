@@ -1,5 +1,43 @@
 version: '3.9'
 services:
+  auth:
+    build:
+      context: .
+      dockerfile: Dockerfile.auth
+    container_name: auth_service
+    depends_on:
+      - postgres
+      - consul_server
+
+  scheduling:
+    build:
+      context: .
+      dockerfile: Dockerfile.scheduling
+    container_name: scheduling_service
+    depends_on:
+      - postgres
+      - consul_server
+      - rabbitmq
+
+  ratings:
+    build:
+      context: .
+      dockerfile: Dockerfile.ratings
+    container_name: rating_service
+    depends_on:
+      - postgres
+      - consul_server
+      - rabbitmq
+
+  gateway:
+    build:
+      context: .
+      dockerfile: Dockerfile.api-gateway
+    container_name: api_gateway
+    ports:
+      - "8080:8080"
+    depends_on:
+      - consul_server
 
   consul_server:
     image: hashicorp/consul

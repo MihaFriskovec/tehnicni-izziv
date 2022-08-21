@@ -13,6 +13,8 @@ import org.springframework.amqp.rabbit.core.RabbitTemplate
 import org.springframework.beans.factory.annotation.Value
 import org.springframework.stereotype.Service
 import org.springframework.transaction.annotation.Transactional
+import java.util.concurrent.Executors
+import java.util.concurrent.TimeUnit
 
 @Service
 class RatingServiceImpl(
@@ -28,6 +30,12 @@ class RatingServiceImpl(
 
     private val processTimer = Timer.builder("surveys.processTime").register(meterRegistry)
     private val processedCounter = Counter.builder("surveys.processed").register(meterRegistry)
+
+    init {
+        Executors.newSingleThreadScheduledExecutor().scheduleAtFixedRate({
+            process()
+        }, 1, 60, TimeUnit.MINUTES)
+    }
 
     @Transactional
     override fun process() {

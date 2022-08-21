@@ -1,0 +1,16 @@
+FROM maven:3-adoptopenjdk-16 AS build
+RUN mkdir /project
+COPY . /project
+WORKDIR /project
+RUN mvn -pl scheduling -am clean package -DskipTests
+
+FROM adoptopenjdk/openjdk16:alpine-jre
+RUN apk add dumb-init
+RUN mkdir /app
+RUN addgroup --system javauser && adduser -S -s /bin/false -G javauser javauser
+COPY --from=build /project/scheduling/target/scheduling-service-trunk.jar /app/scheduling-service.jar
+WORKDIR /app
+RUN chown -R javauser:javauser /app
+USER javauser
+
+CMD "dumb-init" "java" "-Dspring.profiles.active=production" "-jar" "scheduling-service.jar"

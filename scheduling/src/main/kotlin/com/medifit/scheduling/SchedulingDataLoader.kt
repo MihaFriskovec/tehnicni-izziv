@@ -11,11 +11,13 @@ import com.medifit.scheduling.timeslots.model.TimeslotRepository
 import org.slf4j.LoggerFactory
 import org.springframework.beans.factory.annotation.Value
 import org.springframework.boot.CommandLineRunner
+import org.springframework.context.annotation.Profile
 import org.springframework.stereotype.Component
 import org.springframework.transaction.annotation.Transactional
 import java.time.LocalDateTime
 import javax.persistence.EntityManager
 
+@Profile("!integration")
 @Component
 class SchedulingDataLoader(
     private val entityManager: EntityManager,

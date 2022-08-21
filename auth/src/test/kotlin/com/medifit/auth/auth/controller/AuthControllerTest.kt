@@ -68,6 +68,6 @@ internal class AuthControllerTest {
                 .contentType(MediaType.APPLICATION_JSON)
                 .with(csrf())
         ).andExpect(status().isOk)
-            .andExpect(jsonPath("$").value("TOKEN"))
+            .andExpect(jsonPath("$.jwt").value("TOKEN"))
     }
 }

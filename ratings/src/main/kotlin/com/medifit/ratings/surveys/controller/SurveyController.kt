@@ -50,6 +50,7 @@ class SurveyController(private val surveyService: SurveyService) {
         case = IdTransformer.toExternal(appointment),
         doctor = IdTransformer.toExternal(doctor),
         patient = IdTransformer.toExternal(patient),
+        caseDateTime = startTime,
         rating = rating.toString()
     )
 }

@@ -71,7 +71,7 @@ internal class SurveyServiceImplTest {
     @Test
     @DisplayName("Should update existing survey")
     fun shouldUpdateSurvey() {
-        every { surveyRepository.findByAppointment(any()) } returns Survey(
+        every { surveyRepository.findByAppointmentAndPatient(any(), any()) } returns Survey(
             doctor = 1,
             appointment = 1,
             patient = 2,
@@ -100,7 +100,7 @@ internal class SurveyServiceImplTest {
     @Test
     @DisplayName("Should throw error why trying to update non existing survey")
     fun shouldThrowError_surveyNotExists() {
-        every { surveyRepository.findByAppointment(any()) } returns null
+        every { surveyRepository.findByAppointmentAndPatient(any(), any()) } returns null
 
         val ex = assertThrows<ResponseStatusException> {
             surveyService.submitSurvey(
@@ -120,7 +120,7 @@ internal class SurveyServiceImplTest {
     @Test
     @DisplayName("Should throw error why trying to update completed survey")
     fun shouldThrowError_surveyCompleted() {
-        every { surveyRepository.findByAppointment(any()) } returns Survey(
+        every { surveyRepository.findByAppointmentAndPatient(any(), any()) } returns Survey(
             doctor = 1,
             appointment = 1,
             patient = 2,

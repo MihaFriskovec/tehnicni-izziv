@@ -36,6 +36,3 @@ jwt:
 medifit-queue:
   appointments: appointments
   ratings: ratings
-
-demo-data-loader:
-  enabled: true

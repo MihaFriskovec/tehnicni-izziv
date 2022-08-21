@@ -20,4 +20,5 @@ jwt:
   secret: yjuzIg7W0UApg0340DQYICsPQM+kNLxjVcbdVDQ0/zhBT72rLE5NDGsbuXduPfkWHheIxLoJIMYMRcWtj+wZpg==
 
 medifit-queue:
-  appointments: "appointments-test"
+  appointments: appointments-test
+  ratings: ratings-test

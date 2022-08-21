@@ -74,8 +74,8 @@ class AppointmentServiceImpl(
             val appointment = appointmentRepository.save(appointmentToCreate)
 
             val appointmentMessage = AppointmentRabbitMessage(
-                appointmentId = appointment.id!!,
-                doctor = timeslot.doctor.user,
+                appointmentId = appointment.id,
+                doctor = timeslot.doctor.id,
                 patient = appointment.patient,
                 startTime = timeslot.startTime,
                 endTime = timeslot.endTime,
@@ -125,7 +125,7 @@ class AppointmentServiceImpl(
 
             val appointmentMessage = AppointmentRabbitMessage(
                 appointmentId = appointment.id!!,
-                doctor = timeslot.doctor.user,
+                doctor = timeslot.doctor.id,
                 patient = appointment.patient,
                 startTime = timeslot.startTime,
                 endTime = timeslot.endTime,

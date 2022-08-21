@@ -1,0 +1,11 @@
+spring:
+  application:
+    name: api-gateway
+
+  cloud:
+    consul:
+      discovery:
+        register: false
+        register-health-check: false
+      host: consul_server
+      port: 8500

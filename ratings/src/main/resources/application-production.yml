@@ -1,0 +1,20 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://postgres:5432/rating
+    username: appUser
+    password: appPassword
+
+  flyway:
+    enabled: true
+
+  cloud:
+    consul:
+      discovery:
+        prefer-ip-address: true
+        health-check-path: /api/actuator/health
+        health-check-interval: 15s
+      host: consul_server
+      port: 8500
+
+  rabbitmq:
+    host: rabbitmq

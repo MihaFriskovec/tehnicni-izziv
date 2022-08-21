@@ -14,13 +14,17 @@ class RabbitListener(private val doctorService: DoctorService) {
 
     private val objectMapper = ObjectMapper().registerModule(JavaTimeModule())
 
-    @RabbitListener(queues = ["\${medifit-queue.ratings}"])
+    @RabbitListener(queues = ["\${medifit-queue.ratings}"], returnExceptions = "false")
 
     fun listen(message: String) {
         val ratingMessage = objectMapper.readValue(message, RatingMessage::class.java)
 
         logger.info("Received RatingMessage, message=$ratingMessage")
 
-        doctorService.updateRating(ratingMessage.doctor!!, ratingMessage.rating!!)
+        try {
+            doctorService.updateRating(ratingMessage.doctor!!, ratingMessage.rating!!)
+        } catch (e: Exception) {
+            return
+        }
     }
 }

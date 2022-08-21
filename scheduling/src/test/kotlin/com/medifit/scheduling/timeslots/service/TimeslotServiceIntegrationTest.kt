@@ -44,7 +44,8 @@ internal class TimeslotServiceIntegrationTest {
     @Test
     @DisplayName("Should list Timeslots default filters")
     fun listTimeslotsWitDefaultFilters() {
-        val doctor = doctorRepository.save(Doctor(user = 1, specialties = setOf(Speciality(name = "name"))))
+        val speciality = specialtyRepository.save(Speciality(name = "name"))
+        val doctor = doctorRepository.save(Doctor(user = 1, specialties = setOf(speciality)))
         timeslotRepository.save(
             Timeslot(
                 doctor = doctor,
@@ -69,7 +70,8 @@ internal class TimeslotServiceIntegrationTest {
     @Test
     @DisplayName("Should empty list if there are no free timeslots")
     fun shouldReturnEmptyList_NoFreeTimeslots() {
-        val doctor = doctorRepository.save(Doctor(user = 1, specialties = setOf(Speciality(name = "name"))))
+        val speciality = specialtyRepository.save(Speciality(name = "name"))
+        val doctor = doctorRepository.save(Doctor(user = 1, specialties = setOf(speciality)))
         timeslotRepository.save(
             Timeslot(
                 doctor = doctor,
@@ -86,7 +88,8 @@ internal class TimeslotServiceIntegrationTest {
     @Test
     @DisplayName("Should empty list if there are no free timeslots in default date range")
     fun shouldReturnEmptyList_NoFreeTimeslotsInDefaultDateRange() {
-        val doctor = doctorRepository.save(Doctor(user = 1, specialties = setOf(Speciality(name = "name"))))
+        val speciality = specialtyRepository.save(Speciality(name = "name"))
+        val doctor = doctorRepository.save(Doctor(user = 1, specialties = setOf(speciality)))
         timeslotRepository.save(
             Timeslot(
                 doctor = doctor,
@@ -102,7 +105,8 @@ internal class TimeslotServiceIntegrationTest {
     @Test
     @DisplayName("Should list timeslots for given doctor")
     fun shouldListTimeslotsForGivenUser() {
-        val doctor = doctorRepository.save(Doctor(user = 1, specialties = setOf(Speciality(name = "name"))))
+        val speciality = specialtyRepository.save(Speciality(name = "name"))
+        val doctor = doctorRepository.save(Doctor(user = 1, specialties = setOf(speciality)))
         timeslotRepository.save(
             Timeslot(
                 doctor = doctor,
@@ -115,9 +119,5 @@ internal class TimeslotServiceIntegrationTest {
 
         assertNotNull(timeslots)
         assertEquals(1, timeslots.size)
-    }
-
-    @Test
-    fun listTimeslotsByDoctorId() {
     }
 }
