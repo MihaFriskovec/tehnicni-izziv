@@ -1,0 +1,36 @@
+version: '3.9'
+services:
+
+  consul_server:
+    image: hashicorp/consul
+    container_name: consul-server
+    restart: always
+    ports:
+      - '8500:8500'
+      - '8600:8600/tcp'
+      - '8600:8600/udp'
+
+  consul_client:
+    image: hashicorp/consul
+    container_name: consul-client
+    restart: always
+
+  postgres:
+    image: postgres
+    restart: always
+    environment:
+      - POSTGRES_USER=appUser
+      - POSTGRES_PASSWORD=appPassword
+      - POSTGRES_DB=medifit
+    ports:
+      - '5432:5432'
+    volumes:
+      - ./pg-init.sql:/docker-entrypoint-initdb.d/10-init.sql
+
+  rabbitmq:
+    image: rabbitmq
+    restart: always
+    ports:
+      - '5672:5672'
+      - '15672:15672'
+

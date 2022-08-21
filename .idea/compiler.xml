@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="scheduling" />
+        <module name="api-gateway" />
+        <module name="shared-lib" />
+        <module name="auth" />
+        <module name="ratings" />
+        <module name="doctors" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="doctors" target="18" />
+      <module name="healthcare-providers" target="18" />
+      <module name="HealthcareProviders" target="18" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="api-gateway" options="" />
+      <module name="auth" options="" />
+      <module name="doctors" options="" />
+      <module name="healthcare-providers" options="" />
+      <module name="ratings" options="" />
+      <module name="scheduling" options="" />
+    </option>
+  </component>
+</project>

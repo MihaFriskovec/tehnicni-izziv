@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/api-gateway/src/main/kotlin" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/api-gateway/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/auth/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/auth/src/main/kotlin" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/auth/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/doctors/src/main/kotlin" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/doctors/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/healthcare-providers/src/main/kotlin" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/healthcare-providers/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ratings/src/main/kotlin" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ratings/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/scheduling/src/main/kotlin" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/scheduling/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/shared-lib/src/main/kotlin" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/shared-lib/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/kotlin" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/resources" charset="UTF-8" />
+  </component>
+</project>

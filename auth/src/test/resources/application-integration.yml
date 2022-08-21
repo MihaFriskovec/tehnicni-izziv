@@ -1,0 +1,17 @@
+spring:
+  application:
+    name: auth-service
+
+  datasource:
+    driver-class-name: org.testcontainers.jdbc.ContainerDatabaseDriver
+    url: jdbc:tc:postgresql:latest:///auth-test
+
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+
+  flyway:
+    enabled: false
+
+jwt:
+  secret: yjuzIg7W0UApg0340DQYICsPQM+kNLxjVcbdVDQ0/zhBT72rLE5NDGsbuXduPfkWHheIxLoJIMYMRcWtj+wZpg==

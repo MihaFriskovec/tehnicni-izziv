@@ -1,0 +1,31 @@
+server:
+  port: 0
+  servlet:
+    context-path: /api
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
+spring:
+  application:
+    name: auth-service
+
+  datasource:
+    url: jdbc:postgresql://[::1]:5432/auth
+    username: appUser
+    password: appPassword
+
+  cloud:
+    consul:
+      discovery:
+        prefer-ip-address: true
+        health-check-path: /api/actuator/health
+        health-check-interval: 15s
+      host: "[::1]"
+      port: 8500
+
+jwt:
+  secret: Gqfi7PnGg5Hlc2SMurgRQx3/OpT7XUA1o7+qE6FAEfoZM10YrjSged0R2/bZmYy6xuti2b7WVphsavUh0taWOw==

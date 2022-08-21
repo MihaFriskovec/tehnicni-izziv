@@ -1,0 +1,23 @@
+spring:
+  application:
+    name: scheduling-service
+
+  datasource:
+    driver-class-name: org.testcontainers.jdbc.ContainerDatabaseDriver
+    url: jdbc:tc:postgresql:latest:///scheduling-test
+
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+
+  cloud:
+    consul:
+      discovery:
+        enabled: false
+        register: false
+
+jwt:
+  secret: yjuzIg7W0UApg0340DQYICsPQM+kNLxjVcbdVDQ0/zhBT72rLE5NDGsbuXduPfkWHheIxLoJIMYMRcWtj+wZpg==
+
+medifit-queue:
+  appointments: "appointments-test"
